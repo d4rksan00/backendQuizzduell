@@ -11,7 +11,6 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "quizzes", schema = "quizzgame")
 public class Question {
 
     @Id

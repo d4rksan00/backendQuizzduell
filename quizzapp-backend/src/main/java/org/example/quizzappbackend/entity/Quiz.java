@@ -13,7 +13,6 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "quizzes", schema = "quizzgame")
 public class Quiz {
 
     @Id
@@ -21,13 +20,13 @@ public class Quiz {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne(mappedBy = "quiz")
+    @OneToOne
     private Player playerOne;
 
-    @OneToOne(mappedBy = "quiz")
+    @OneToOne
     private Player playerTwo;
 
-    @OneToMany(mappedBy = "quiz")
+    @OneToMany
     private List<QuizRound> quizRounds;
 
 }

@@ -5,13 +5,15 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.example.quizzappbackend.enumeration.Category;
+
+import java.util.List;
 
 @Entity
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "quizzes", schema = "quizzgame")
 public class QuizRound {
 
     @Id
@@ -19,6 +21,7 @@ public class QuizRound {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private
+    @OneToMany
+    private List<Question> question;
 
 }

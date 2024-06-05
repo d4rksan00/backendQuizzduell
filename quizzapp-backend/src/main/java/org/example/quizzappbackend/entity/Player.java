@@ -12,7 +12,6 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "player", schema = "quizzapp")
 public class Player {
 
     @Id
@@ -32,10 +31,10 @@ public class Player {
 
     private Long countDraws;
 
-    @OneToMany(mappedBy = "player")
+    @OneToMany
     private List<Player> friendList;
 
-    @OneToMany(mappedBy = "player")
+    @OneToMany
     private List<Quiz> openQuizzes;
 
 
