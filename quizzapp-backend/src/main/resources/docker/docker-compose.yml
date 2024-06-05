@@ -1,0 +1,14 @@
+version: "3.7"
+services:
+
+  quizzapp-database-postgres:
+    image: postgres:latest
+    container_name: quizzapp-database-postgres
+    ports:
+      - 5433:5432
+    environment:
+      TZ: "Europe/Berlin"
+      POSTGRES_USER: "quizzapp-user"
+      POSTGRES_PASSWORD: "quizzapp-password"
+      POSTGRES_DB: "quizzapp"
+    restart: always
