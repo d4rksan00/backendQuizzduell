@@ -1,48 +1,42 @@
 package org.example.quizzappbackend.service;
 
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.example.quizzappbackend.entity.Quiz;
-import org.example.quizzappbackend.repository.QuizRepository;
+import org.example.quizzappbackend.repository.QuizRepo;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@Getter
 @RequiredArgsConstructor
 public class QuizServiceImpl implements QuizService {
-    private final QuizRepository quizRepository;
+
+    private final QuizRepo quizRepo;
 
     @Override
     public Quiz createQuiz(Quiz quiz) {
-        return this.quizRepository.save(quiz);
-    }
-
-    @Override
-    public Quiz getQuiz(Long id) {
-        return null;
+        return this.quizRepo.save(quiz);
     }
 
     @Override
     public Quiz updateQuiz(Quiz quiz) {
-        if (this.quizRepository.existsById(quiz.getId())) {
-            Quiz newQuiz = this.quizRepository.findById(quiz.getId()).orElse(null);
-            if (newQuiz != null) {
-                newQuiz.setId(quiz.getId());
-                this.quizRepository.save(newQuiz);
-            }
-        }
-        return quiz;
+        return this.quizRepo.save(quiz);
+    }
+
+    @Override
+    public Quiz getQuiz(Long id) {
+        return this.quizRepo.findById(id).orElse(null);
     }
 
     @Override
     public void deleteQuiz(Long id) {
-        this.quizRepository.deleteById(id);
+        this.quizRepo.deleteById(id);
     }
 
     @Override
     public List<Quiz> getAllQuizzes() {
-        return (List<Quiz>) this.quizRepository.findAll();
+        return (List<Quiz>) quizRepo.findAll();
     }
 }
-
-

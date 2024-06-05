@@ -1,49 +1,49 @@
 package org.example.quizzappbackend.controller;
 
-import lombok.RequiredArgsConstructor;
 import jakarta.validation.Valid;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 import org.example.quizzappbackend.entity.Quiz;
-import org.modelmapper.ModelMapper;
 import org.example.quizzappbackend.service.QuizServiceImpl;
+import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+
 @RestController
+@Getter
 @RequiredArgsConstructor
 @RequestMapping("/Quiz")
 @CrossOrigin
 public class QuizController {
 
     private final QuizServiceImpl quizServiceImpl;
-    private final ModelMapper modelMapper;
+    //private final ModelMapper modelMapper;
 
-    @PostMapping()
-    //@ResponseStatus(HttpStatus.CREATED)
-    public ResponseEntity<Quiz> createQuiz(@Valid @RequestBody CreateQuizDTO createQuizDTO) {
-        return new ResponseEntity<>(quizServiceImpl.createQuiz(modelMapper.map(createQuizDTO, Quiz.class)), HttpStatus.CREATED);
+    @PostMapping
+    public ResponseEntity<Quiz> postQuiz(@Valid @RequestBody Quiz postQuiz){
+        Quiz response = this.quizServiceImpl.createQuiz(postQuiz);
+        return new ResponseEntity<>(response, HttpStatus.CREATED);
     }
 
     @PutMapping
-    public ResponseEntity<Quiz> updateQuiz(@Valid @RequestBody UpdateQuizDTO updateQuizDTO) {
-        return new ResponseEntity<>(quizServiceImpl.updateQuiz(modelMapper.map(updateQuizDTO, Quiz.class)), HttpStatus.OK);DeleteMapping
+    public ResponseEntity<Quiz> putQuiz(@Valid @RequestBody Quiz putQuiz){
+        Quiz response = this.quizServiceImpl.createQuiz(putQuiz);
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
     @DeleteMapping
-    @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void deleteQuiz(@RequestParam Long id) {
-        quizServiceImpl.deleteQuiz(id);
+    public ResponseEntity<Quiz> deleteQuiz(@Valid @RequestBody Quiz deleteQuiz){
+        this.quizServiceImpl.deleteQuiz(deleteQuiz.getId());
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
-    @GetMapping
-    public ResponseEntity<Quiz> getQuiz(@RequestParam Long id) {
-        return new ResponseEntity<>(quizServiceImpl.getQuiz(id), HttpStatus.OK);
+    @GetMapping("/allQuizzes")
+    public ResponseEntity<List<Quiz>> getAllQuiz(){
+        return new ResponseEntity<>(this.quizServiceImpl.getAllQuizzes(), HttpStatus.OK);
     }
 
-    @GetMapping
-    public ResponseEntity<List<Quiz>> getAllQuiz() {
-        return new ResponseEntity<>(quizServiceImpl.getAllQuizzes(), HttpStatus.OK);
-    }
 }
