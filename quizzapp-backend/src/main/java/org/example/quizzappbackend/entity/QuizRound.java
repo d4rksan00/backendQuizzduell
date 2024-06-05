@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.example.quizzappbackend.enumeration.Category;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -17,11 +18,13 @@ import java.util.List;
 public class QuizRound {
 
     @Id
-    @Column(nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToMany
-    private List<Question> question;
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<Question> question = new ArrayList<>();
+
+    @OneToOne
+    private Player activePlayer;
 
 }

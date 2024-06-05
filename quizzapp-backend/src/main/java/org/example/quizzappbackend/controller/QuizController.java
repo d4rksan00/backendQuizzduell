@@ -16,7 +16,7 @@ import java.util.List;
 @RestController
 @Getter
 @RequiredArgsConstructor
-@RequestMapping("/Quiz")
+@RequestMapping("/quiz")
 @CrossOrigin
 public class QuizController {
 
