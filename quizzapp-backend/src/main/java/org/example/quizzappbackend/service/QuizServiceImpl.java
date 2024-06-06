@@ -22,11 +22,18 @@ public class QuizServiceImpl implements QuizService {
 
     @Override
     public Quiz updateQuiz(Quiz quiz) {
-        return this.quizRepo.save(quiz);
+        if (this.quizRepo.existsById(quiz.getId())) {
+            Quiz newQuiz = this.quizRepo.findById(quiz.getId()).orElse(null);
+            if (newQuiz != null) {
+                newQuiz.setId(quiz.getId());
+                this.quizRepo.save(newQuiz);
+            }
+        }
+        return quiz;
     }
 
     @Override
-    public Quiz getQuiz(Long id) {
+    public Quiz getQuizById(Long id) {
         return this.quizRepo.findById(id).orElse(null);
     }
 
