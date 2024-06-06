@@ -32,7 +32,7 @@ public class Player {
     private Long countDraws;
 
     @OneToMany(cascade = CascadeType.ALL)
-    private List<Player> friendList = new ArrayList<>();
+    private List<Quiz> friendList = new ArrayList<>();
 
     @OneToMany(cascade = CascadeType.ALL)
     private List<Quiz> openQuizzes = new ArrayList<>();

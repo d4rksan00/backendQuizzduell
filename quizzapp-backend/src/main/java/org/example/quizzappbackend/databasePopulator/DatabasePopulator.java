@@ -2,7 +2,6 @@ package org.example.quizzappbackend.databasePopulator;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import org.example.quizzappbackend.entity.Player;
 import org.example.quizzappbackend.entity.Question;
 import org.example.quizzappbackend.entity.Quiz;
 import org.example.quizzappbackend.entity.QuizRound;
@@ -13,7 +12,6 @@ import org.example.quizzappbackend.repository.QuizRoundRepo;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -30,14 +28,14 @@ public class DatabasePopulator implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-//        List<Player> friendList = Arrays.asList();
+//        List<Quiz> friendList = Arrays.asList();
 //        List<Quiz> quizzes = Arrays.asList();
 //
-//        Player p1 = new Player(null,"Dr. med. Rasen", false,0,0L,0L, 0L, friendList,quizzes);
-//        Player p2 = new Player(null,"Dr. Acula", false,0,0L,0L, 0L, friendList,quizzes);
-//        Player p3 = new Player(null,"Dr. Ompete", false,0,0L,0L, 0L, friendList,quizzes);
+//        Quiz p1 = new Quiz(null,"Dr. med. Rasen", false,0,0L,0L, 0L, friendList,quizzes);
+//        Quiz p2 = new Quiz(null,"Dr. Acula", false,0,0L,0L, 0L, friendList,quizzes);
+//        Quiz p3 = new Quiz(null,"Dr. Ompete", false,0,0L,0L, 0L, friendList,quizzes);
 //
-//        List<Player> oponents = Arrays.asList(p1,p2);
+//        List<Quiz> oponents = Arrays.asList(p1,p2);
 //
 //        Question question1 = new Question(null, p1);
 //        Question question2 = new Question();

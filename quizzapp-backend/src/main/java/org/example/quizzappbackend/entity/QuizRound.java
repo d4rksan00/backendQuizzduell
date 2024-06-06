@@ -5,7 +5,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.example.quizzappbackend.enumeration.Category;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,6 +24,6 @@ public class QuizRound {
     private List<Question> question = new ArrayList<>();
 
     @OneToOne
-    private Player activePlayer;
+    private Quiz activeQuiz;
 
 }

@@ -21,10 +21,10 @@ public class Quiz {
     private Long id;
 
     @OneToOne
-    private Player playerOne;
+    private Quiz quizOne;
 
     @OneToOne
-    private Player playerTwo;
+    private Quiz quizTwo;
 
     @OneToMany(cascade = CascadeType.ALL)
     private List<QuizRound> quizRounds = new ArrayList<>();
