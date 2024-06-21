@@ -18,17 +18,13 @@ public class Player {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String name;
-
+    private String email;
+    private String password;
     private Boolean activePlayer;
-
     private Integer points;
-
     private Long countWins;
-
     private Long countLosses;
-
     private Long countDraws;
 
     @OneToMany(cascade = CascadeType.ALL)
@@ -36,6 +32,7 @@ public class Player {
 
     @OneToMany(cascade = CascadeType.ALL)
     private List<Quiz> openQuizzes = new ArrayList<>();
+
 
 
 }
