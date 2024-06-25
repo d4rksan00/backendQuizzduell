@@ -1,0 +1,42 @@
+openapi: 3.0.3
+
+
+info:
+  title: Player API
+  description: 'This API is used to manage Users'
+  version: 0.0.1
+
+tags:
+  - name: "Player"
+
+paths:
+  /player:
+    get:
+      summary: Returns a list of users
+      tags:
+        - "Player"
+      description: 'this is a description'
+      responses:
+        200:
+          description: List with all players
+          content:
+            application/json:
+              schema:
+                items:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/Player'
+
+
+components:
+  schemas:
+    Player:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        email:
+          type: string
