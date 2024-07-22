@@ -32,7 +32,7 @@ public class QuizServiceImpl implements QuizService {
         return quiz;
     }
     @Override
-    public Quiz getQuiz(Long id) {
+    public Quiz getQuizById(Long id) {
         return this.quizRepo.findById(id).orElse(null);
     }
 

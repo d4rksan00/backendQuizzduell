@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -16,7 +17,6 @@ import java.util.List;
 public class Quiz {
 
     @Id
-    @Column(nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
@@ -26,7 +26,7 @@ public class Quiz {
     @OneToOne
     private Player playerTwo;
 
-    @OneToMany
-    private List<QuizRound> quizRounds;
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<QuizRound> quizRounds = new ArrayList<>();
 
 }

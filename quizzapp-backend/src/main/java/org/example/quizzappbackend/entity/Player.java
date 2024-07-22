@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -15,27 +16,23 @@ import java.util.List;
 public class Player {
 
     @Id
-    @Column(nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String name;
-
+    private String email;
+    private String password;
     private Boolean activePlayer;
-
     private Integer points;
-
     private Long countWins;
-
     private Long countLosses;
-
     private Long countDraws;
 
-    @OneToMany
-    private List<Player> friendList;
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<Player> friendList = new ArrayList<>();
 
-    @OneToMany
-    private List<Quiz> openQuizzes;
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<Quiz> openQuizzes = new ArrayList<>();
+
 
 
 }
