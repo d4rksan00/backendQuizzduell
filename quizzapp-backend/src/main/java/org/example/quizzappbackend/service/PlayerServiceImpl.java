@@ -4,14 +4,16 @@ package org.example.quizzappbackend.service;
 import lombok.AllArgsConstructor;
 import org.example.quizzappbackend.entity.Player;
 import org.example.quizzappbackend.repository.PlayerRepo;
+import org.springframework.stereotype.Service;
 
 @AllArgsConstructor
+@Service
 public class PlayerServiceImpl {
 
     private final PlayerRepo playerRepo;
 
-    public void createPlayer(Player player) {
-        playerRepo.save(player);
+    public Player createPlayer(Player player) {
+        return playerRepo.save(player);
     }
 
     public Player getPlayer(Long playerId) {
