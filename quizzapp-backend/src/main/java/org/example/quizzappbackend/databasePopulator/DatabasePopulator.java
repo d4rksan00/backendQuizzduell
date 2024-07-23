@@ -63,6 +63,9 @@ public class DatabasePopulator implements CommandLineRunner {
 //
 //        quizRepo.save(q1);
 
+        System.out.println("Hello from the populator");
+
+
         Player p1 = new Player(null,"Dr. med. Rasen","rasen@drmed.com", "8d9&YDMR3Vd6E&", false,0,0L,0L, 0L, null, null);
         Player p2 = new Player(null,"Dr. Acula","DrAcula@gmail.com", "8d9&YDMR3Vd6E&", false,0,0L,0L, 0L, null, null);
         Player p3 = new Player(null,"Dr. Eieck","DrEieck.com", "8d9&YDMR3Vd6E&", false,0,0L,0L, 0L, null, null);

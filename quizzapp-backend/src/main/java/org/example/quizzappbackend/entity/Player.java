@@ -33,6 +33,4 @@ public class Player {
     @OneToMany(cascade = CascadeType.ALL)
     private List<Quiz> openQuizzes = new ArrayList<>();
 
-
-
 }
