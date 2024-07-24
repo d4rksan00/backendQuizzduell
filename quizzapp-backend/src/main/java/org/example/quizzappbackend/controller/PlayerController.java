@@ -35,9 +35,9 @@ public class PlayerController {
         return new ResponseEntity<>(this.playerService.getPlayerByCredentials(player.getEmail(), player.getPassword()) ,HttpStatus.OK);
     }
 
-    @PostMapping("/getOpenGames")
-    public ResponseEntity<List<Quiz>> getOpenGames(@Valid @RequestBody PlayerCreateDto player) {
-        return new ResponseEntity<>(this.playerService.getAllOpenGames(player.getEmail()) ,HttpStatus.OK);
-    }
+//    @PostMapping("/getOpenGames")
+//    public ResponseEntity<List<Quiz>> getOpenGames(@Valid @RequestBody PlayerCreateDto player) {
+//        return new ResponseEntity<>(this.playerService.getAllOpenGames(player.getEmail()) ,HttpStatus.OK);
+//    }
 
 }

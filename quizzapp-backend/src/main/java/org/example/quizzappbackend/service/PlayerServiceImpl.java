@@ -24,8 +24,8 @@ public class PlayerServiceImpl {
     }
 
     public Player getPlayerByCredentials(String email, String password) {
-        return playerRepo.findByEmail(email);
+        return playerRepo.findPlayerByEmail(email);
     }
 
-    public List<Quiz> getAllOpenGames(String email){ return playerRepo.findAllByEmail(email); };
+//    public List<Quiz> getAllOpenGames(String email){ return playerRepo.findAllByEmail(email); };
 }

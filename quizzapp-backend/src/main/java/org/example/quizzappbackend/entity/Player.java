@@ -15,11 +15,10 @@ import java.util.List;
 @NoArgsConstructor
 public class Player {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    //private Long id;
     private String name;
-    @Column(unique=true)
+    @Id
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
     private String email;
     private String password;
     private Boolean activePlayer;

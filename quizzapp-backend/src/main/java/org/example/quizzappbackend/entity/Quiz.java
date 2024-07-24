@@ -29,4 +29,6 @@ public class Quiz {
     @OneToMany(cascade = CascadeType.ALL)
     private List<QuizRound> quizRounds = new ArrayList<>();
 
+    private Boolean isFinished = false;
+
 }
