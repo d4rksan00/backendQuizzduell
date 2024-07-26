@@ -15,10 +15,10 @@ import java.util.List;
 @NoArgsConstructor
 public class Player {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    //private Long id;
     private String name;
+    @Id
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
     private String email;
     private String password;
     private Boolean activePlayer;
@@ -32,7 +32,5 @@ public class Player {
 
     @OneToMany(cascade = CascadeType.ALL)
     private List<Quiz> openQuizzes = new ArrayList<>();
-
-
 
 }

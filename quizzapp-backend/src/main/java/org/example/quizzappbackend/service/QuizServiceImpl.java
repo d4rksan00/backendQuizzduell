@@ -45,4 +45,8 @@ public class QuizServiceImpl implements QuizService {
     public List<Quiz> getAllQuizzes() {
         return (List<Quiz>) quizRepo.findAll();
     }
+
+    public List<Quiz> findAllOpenQuizzesByPlayerEmail(String email){
+        return this.quizRepo.findAllOpenQuizzesByPlayerEmail(email);
+    }
 }

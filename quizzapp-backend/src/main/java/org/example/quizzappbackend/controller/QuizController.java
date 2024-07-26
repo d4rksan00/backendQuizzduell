@@ -44,14 +44,15 @@ public class QuizController {
         return new ResponseEntity<>(response, HttpStatus.CREATED);
     }
 
-
-
     @DeleteMapping
     public ResponseEntity<Quiz> deleteQuiz(@Valid @RequestBody Quiz deleteQuiz){
         this.quizServiceImpl.deleteQuiz(deleteQuiz.getId());
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
-
+    @PostMapping("/getOpenGames")
+    public ResponseEntity<List<Quiz>> findAllOpenQuizzesByPlayerEmail(@Valid @RequestBody String email){
+        return new ResponseEntity<>(this.quizServiceImpl.findAllOpenQuizzesByPlayerEmail(email), HttpStatus.OK);
+    }
 
 }
