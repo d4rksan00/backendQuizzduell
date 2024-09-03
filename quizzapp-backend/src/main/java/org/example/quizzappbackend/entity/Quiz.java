@@ -31,4 +31,8 @@ public class Quiz {
 
     private Boolean isFinished = false;
 
+    public Quiz (Player playerOne) {
+        this.playerOne = playerOne;
+    }
+
 }

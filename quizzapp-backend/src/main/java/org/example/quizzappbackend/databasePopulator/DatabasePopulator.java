@@ -6,6 +6,7 @@ import org.example.quizzappbackend.entity.Player;
 import org.example.quizzappbackend.entity.Question;
 import org.example.quizzappbackend.entity.Quiz;
 import org.example.quizzappbackend.entity.QuizRound;
+import org.example.quizzappbackend.enumeration.Category;
 import org.example.quizzappbackend.repository.PlayerRepo;
 import org.example.quizzappbackend.repository.QuestionRepo;
 import org.example.quizzappbackend.repository.QuizRepo;
@@ -89,28 +90,17 @@ public class DatabasePopulator implements CommandLineRunner {
 //        questionRepo.saveAll(Arrays.asList(question1,question2,question3,question4,question5, question6));
 
 
-        List<Question> questionsPlayer1 = Arrays.asList(question1,question2,question3);
-        List<Question> questionsPlayer2 = Arrays.asList(question4,question5,question6);
+        //List<Question> questionsPlayer1 = Arrays.asList(question1,question2,question3);
+       // List<Question> questionsPlayer2 = Arrays.asList(question4,question5,question6);
 
 
-        QuizRound qr1 = new QuizRound(null,questionsPlayer1,p1);
-        QuizRound qr2 = new QuizRound(null,questionsPlayer2,p2);
+        QuizRound qr1 = new QuizRound(null,null,p1, Category.ART);
+        QuizRound qr2 = new QuizRound(null,null,p2, Category.ANIMALS);
 
 //        this.quizRoundRepo.saveAll(Arrays.asList(qr1,qr2));
 //
-        Quiz q1 = new Quiz(null,p1,p2,Arrays.asList(qr1,qr2), false);
+        Quiz q1 = new Quiz();
         this.quizRepo.save(q1);
-
-        p4.setOpenQuizzes(Arrays.asList(q1));
-
-        playerRepo.save(p4);
-
-        List<Quiz> q = this.quizRepo.findAllOpenQuizzesByPlayerEmail("rasen@drmed.com");
-
-        for(Quiz quiz : q){
-            System.out.println(quiz.getPlayerOne().getEmail());
-        }
-        System.out.println(q.toString());
 
     }
 }

@@ -27,4 +27,6 @@ public class QuizRound {
     @OneToOne
     private Player activePlayer;
 
+    private Category category;
+
 }
