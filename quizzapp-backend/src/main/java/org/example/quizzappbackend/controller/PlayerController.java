@@ -3,6 +3,7 @@ package org.example.quizzappbackend.controller;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.example.quizzappbackend.dto.PlayerCreateDto;
+import org.example.quizzappbackend.dto.PlayerDto;
 import org.example.quizzappbackend.entity.Player;
 import org.example.quizzappbackend.entity.Quiz;
 import org.example.quizzappbackend.service.PlayerServiceImpl;
@@ -16,7 +17,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Controller
+@RestController
 @RequestMapping("/player")
 @RequiredArgsConstructor
 @CrossOrigin
@@ -33,6 +34,11 @@ public class PlayerController {
     @PostMapping("/getByCredentials")
     public ResponseEntity<Player> getPlayerByCredentials(@Valid @RequestBody PlayerCreateDto player) {
         return new ResponseEntity<>(this.playerService.getPlayerByCredentials(player.getEmail(), player.getPassword()) ,HttpStatus.OK);
+    }
+
+    @PostMapping("/getByEmail")
+    public ResponseEntity<Player> getPlayerByEmail(@Valid @RequestBody PlayerDto player) {
+        return new ResponseEntity<>(this.playerService.getPlayerByEmail(player.getEmail()), HttpStatus.OK);
     }
 
 //    @PostMapping("/getOpenGames")

@@ -27,5 +27,9 @@ public class PlayerServiceImpl {
         return playerRepo.findPlayerByEmail(email);
     }
 
+    public Player getPlayerByEmail(String email) {
+        return playerRepo.findPlayerByEmail(email);
+    }
+
 //    public List<Quiz> getAllOpenGames(String email){ return playerRepo.findAllByEmail(email); };
 }

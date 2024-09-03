@@ -26,13 +26,12 @@ public class Quiz {
     @OneToOne
     private Player playerTwo;
 
+    private Integer playerOnePoints;
+    private Integer playerTwoPoints;
+
     @OneToMany(cascade = CascadeType.ALL)
     private List<QuizRound> quizRounds = new ArrayList<>();
 
     private Boolean isFinished = false;
-
-    public Quiz (Player playerOne) {
-        this.playerOne = playerOne;
-    }
 
 }

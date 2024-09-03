@@ -7,6 +7,7 @@ import org.example.quizzappbackend.entity.Quiz;
 import org.example.quizzappbackend.service.QuizServiceImpl;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -16,7 +17,7 @@ import java.util.List;
 @Getter
 @RequiredArgsConstructor
 @RequestMapping("/quiz")
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:4200")
 public class QuizController {
 
     private final QuizServiceImpl quizServiceImpl;
@@ -39,9 +40,14 @@ public class QuizController {
     }
 
     @PostMapping("/create)")
-    public ResponseEntity<Quiz> postQuiz(@Valid @RequestBody Quiz postQuiz){
+    public ResponseEntity<Quiz> postQuiz(@RequestBody Quiz postQuiz){
         Quiz response = this.quizServiceImpl.createQuiz(postQuiz);
         return new ResponseEntity<>(response, HttpStatus.CREATED);
+    }
+
+    @PostMapping("/create1)")
+    public ResponseEntity<String> postQuiz2(){
+        return new ResponseEntity<>("test", HttpStatus.CREATED);
     }
 
     @DeleteMapping
